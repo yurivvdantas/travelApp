@@ -7,9 +7,8 @@ class SearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.blueGrey[50],
         borderRadius: BorderRadius.all(
-          Radius.circular(5.0),
+          Radius.circular(10.0),
         ),
       ),
       child: TextField(
@@ -20,7 +19,7 @@ class SearchBar extends StatelessWidget {
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(10.0),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(10.0),
             borderSide: BorderSide(
               color: Colors.white,
             ),
@@ -29,11 +28,11 @@ class SearchBar extends StatelessWidget {
             borderSide: BorderSide(
               color: Colors.white,
             ),
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(10.0),
           ),
-          hintText: "E.g: New York, United States",
+          hintText: "O que você quer agendar?",
           prefixIcon: Icon(
-            Icons.location_on,
+            Icons.search,
             color: Colors.blueGrey[300],
           ),
           hintStyle: TextStyle(

@@ -36,25 +36,31 @@ class Home extends StatelessWidget {
           Container(
             color: Theme.of(context).accentColor,
             height: screenHeight < 500
-                ? 100
+                ? 110
                 : screenHeight > 800
                     ? 300
-                    : screenHeight * 0.25,
+                    : screenHeight * 0.23,
             child: Padding(
-              padding: EdgeInsets.all(20.0),
+              /* padding: EdgeInsets.all(20.0),
               child: Text(
                 "Where are you \ngoing?",
                 style: TextStyle(
                     fontSize: 30.0,
                     fontWeight: FontWeight.w600,
                     color: Colors.white),
+              ), */
+              padding: EdgeInsets.all(30),
+              child: Column(
+                children: [
+                  SearchBar(),
+                ],
               ),
             ),
           ),
-          Padding(
+          /*  Padding(
             padding: EdgeInsets.all(20.0),
             child: SearchBar(),
-          ),
+          ), */
           buildHorizontalList(context),
           buildVerticalList(),
         ],
