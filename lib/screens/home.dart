@@ -8,26 +8,46 @@ import 'package:flutter_travel/widgets/vertical_place_item.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var screenHeight = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).accentColor,
         actions: <Widget>[
           IconButton(
             icon: IconBadge(
               icon: Icons.notifications_none,
+              color: Theme.of(context).primaryColor,
             ),
             onPressed: () {},
           ),
         ],
+        title: Padding(
+          padding: const EdgeInsets.only(left: 25, top: 10),
+          child: Center(
+            child: Image.asset(
+              "assets/logo.png",
+              height: 70,
+            ),
+          ),
+        ),
       ),
       body: ListView(
         children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Text(
-              "Where are you \ngoing?",
-              style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.w600,
+          Container(
+            color: Theme.of(context).accentColor,
+            height: screenHeight < 500
+                ? 100
+                : screenHeight > 800
+                    ? 300
+                    : screenHeight * 0.25,
+            child: Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                "Where are you \ngoing?",
+                style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white),
               ),
             ),
           ),

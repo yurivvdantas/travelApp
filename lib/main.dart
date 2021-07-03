@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: Constants.appName,
       theme: Constants.lightTheme,
-      darkTheme: Constants.darkTheme,
+      //darkTheme: Constants.darkTheme,
       home: MainScreen(),
     );
   }
