@@ -138,7 +138,7 @@ class Details extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         primary: false,
-        itemCount: places == null ? 0 : places.length,
+        itemCount: places.length,
         itemBuilder: (BuildContext context, int index) {
           Map place = places[index];
 

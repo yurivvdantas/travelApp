@@ -5,7 +5,7 @@ import '../screens/details.dart';
 class HorizontalPlaceItem extends StatelessWidget {
   final Map place;
 
-  HorizontalPlaceItem({this.place});
+  HorizontalPlaceItem({required this.place});
 
   @override
   Widget build(BuildContext context) {

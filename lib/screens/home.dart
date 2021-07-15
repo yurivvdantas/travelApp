@@ -3,6 +3,8 @@ import 'package:flutter_travel/util/places.dart';
 import 'package:flutter_travel/widgets/horizontal_place_item.dart';
 import 'package:flutter_travel/widgets/icon_badge.dart';
 import 'package:flutter_travel/widgets/search_bar.dart';
+import 'package:flutter_travel/widgets/titled_navigation_barItem.dart';
+import 'package:flutter_travel/widgets/upper_navigation_bar.dart';
 import 'package:flutter_travel/widgets/vertical_place_item.dart';
 
 class Home extends StatelessWidget {
@@ -41,14 +43,6 @@ class Home extends StatelessWidget {
                     ? 300
                     : screenHeight * 0.23,
             child: Padding(
-              /* padding: EdgeInsets.all(20.0),
-              child: Text(
-                "Where are you \ngoing?",
-                style: TextStyle(
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white),
-              ), */
               padding: EdgeInsets.all(30),
               child: Column(
                 children: [
@@ -57,10 +51,23 @@ class Home extends StatelessWidget {
               ),
             ),
           ),
-          /*  Padding(
-            padding: EdgeInsets.all(20.0),
-            child: SearchBar(),
-          ), */
+          TitledBottomNavigationBar(
+              currentIndex: 2, // Use this to update the Bar giving a position
+              onTap: (index) {
+                print("Selected Index: $index");
+              },
+              items: [
+                TitledNavigationBarItem(
+                    title: Text('Home'), icon: Icon(Icons.home)),
+                TitledNavigationBarItem(
+                    title: Text('Search'), icon: Icon(Icons.search)),
+                TitledNavigationBarItem(
+                    title: Text('Bag'), icon: Icon(Icons.card_travel)),
+                TitledNavigationBarItem(
+                    title: Text('Orders'), icon: Icon(Icons.shopping_cart)),
+                TitledNavigationBarItem(
+                    title: Text('Profile'), icon: Icon(Icons.person_outline)),
+              ]),
           buildHorizontalList(context),
           buildVerticalList(),
         ],
@@ -76,7 +83,7 @@ class Home extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         primary: false,
-        itemCount: places == null ? 0.0 : places.length,
+        itemCount: places.length,
         itemBuilder: (BuildContext context, int index) {
           Map place = places.reversed.toList()[index];
           return HorizontalPlaceItem(place: place);
@@ -92,7 +99,7 @@ class Home extends StatelessWidget {
         primary: false,
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
-        itemCount: places == null ? 0 : places.length,
+        itemCount: places.length,
         itemBuilder: (BuildContext context, int index) {
           Map place = places[index];
           return VerticalPlaceItem(place: place);
