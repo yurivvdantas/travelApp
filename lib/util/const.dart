@@ -8,6 +8,7 @@ class Constants {
   static Color darkPrimary = Colors.black;
   static Color lightAccent = Colors.blueGrey[900]!;
   static Color darkAccent = Colors.white;
+  static MaterialColor primaySwatchLight = Colors.blueGrey;
   static Color lightBG = Color(0xfffcfcff);
   static Color darkBG = Colors.black;
   static Color badgeColor = Colors.red;
@@ -19,6 +20,7 @@ class Constants {
     textSelectionTheme: TextSelectionThemeData(cursorColor: lightAccent),
     scaffoldBackgroundColor: lightBG,
     appBarTheme: AppBarTheme(
+      backgroundColor: lightAccent,
       elevation: 0,
       textTheme: TextTheme(
         headline6: TextStyle(
@@ -35,6 +37,7 @@ class Constants {
     scaffoldBackgroundColor: darkBG,
     textSelectionTheme: TextSelectionThemeData(cursorColor: darkAccent),
     appBarTheme: AppBarTheme(
+      backgroundColor: lightAccent,
       elevation: 0,
       textTheme: TextTheme(
         headline6: TextStyle(

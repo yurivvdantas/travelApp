@@ -13,7 +13,6 @@ class Home extends StatelessWidget {
     var screenHeight = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).accentColor,
         actions: <Widget>[
           IconButton(
             icon: IconBadge(
@@ -36,7 +35,7 @@ class Home extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Container(
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).appBarTheme.backgroundColor,
             height: screenHeight < 500
                 ? 110
                 : screenHeight > 800
@@ -60,15 +59,11 @@ class Home extends StatelessWidget {
                 TitledNavigationBarItem(
                     title: Text('Home'), icon: Icon(Icons.home)),
                 TitledNavigationBarItem(
-                    title: Text('Search'), icon: Icon(Icons.search)),
-                TitledNavigationBarItem(
                     title: Text('Bag'), icon: Icon(Icons.card_travel)),
                 TitledNavigationBarItem(
                     title: Text('Orders'), icon: Icon(Icons.shopping_cart)),
-                TitledNavigationBarItem(
-                    title: Text('Profile'), icon: Icon(Icons.person_outline)),
               ]),
-          buildHorizontalList(context),
+          //buildHorizontalList(context),
           buildVerticalList(),
         ],
       ),

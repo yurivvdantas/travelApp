@@ -42,7 +42,7 @@ class TitledBottomNavigationBar extends StatefulWidget {
 
   TitledBottomNavigationBar({
     Key? key,
-    this.reverse = false,
+    this.reverse = true,
     this.curve = Curves.linear,
     required this.onTap,
     required this.items,
