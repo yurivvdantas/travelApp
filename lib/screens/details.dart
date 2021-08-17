@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_travel/util/places.dart';
+import 'package:flutter_travel/util/cultural_places.dart';
 import 'package:flutter_travel/widgets/icon_badge.dart';
 
 class Details extends StatelessWidget {
@@ -39,7 +39,7 @@ class Details extends StatelessWidget {
                   Container(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "${places[0]["name"]}",
+                      "${culturalPlaces[0]["name"]}",
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 20,
@@ -67,7 +67,7 @@ class Details extends StatelessWidget {
                   Container(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "${places[0]["location"]}",
+                      "${culturalPlaces[0]["location"]}",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 13,
@@ -83,7 +83,7 @@ class Details extends StatelessWidget {
               Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "${places[0]["price"]}",
+                  "${culturalPlaces[0]["price"]}",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 17,
@@ -109,7 +109,7 @@ class Details extends StatelessWidget {
               Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "${places[0]["details"]}",
+                  "${culturalPlaces[0]["details"]}",
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
                     fontSize: 15.0,
@@ -138,9 +138,9 @@ class Details extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         primary: false,
-        itemCount: places.length,
+        itemCount: culturalPlaces.length,
         itemBuilder: (BuildContext context, int index) {
-          Map place = places[index];
+          Map place = culturalPlaces[index];
 
           return Padding(
             padding: EdgeInsets.only(right: 10.0),

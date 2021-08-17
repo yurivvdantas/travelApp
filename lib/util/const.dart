@@ -12,6 +12,8 @@ class Constants {
   static Color lightBG = Color(0xfffcfcff);
   static Color darkBG = Colors.black;
   static Color badgeColor = Colors.red;
+  static IconThemeData iconAppBarThemeLight =
+      IconThemeData(color: lightPrimary);
 
   static ThemeData lightTheme = ThemeData(
     backgroundColor: lightBG,
@@ -20,6 +22,8 @@ class Constants {
     textSelectionTheme: TextSelectionThemeData(cursorColor: lightAccent),
     scaffoldBackgroundColor: lightBG,
     appBarTheme: AppBarTheme(
+      actionsIconTheme: iconAppBarThemeLight,
+      iconTheme: iconAppBarThemeLight,
       backgroundColor: lightAccent,
       elevation: 0,
       textTheme: TextTheme(

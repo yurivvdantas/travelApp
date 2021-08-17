@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_travel/util/places.dart';
-import 'package:flutter_travel/widgets/horizontal_place_item.dart';
+import 'package:flutter_travel/util/adventure_places.dart';
+import 'package:flutter_travel/util/const.dart';
+import 'package:flutter_travel/util/cultural_places.dart';
+import 'package:flutter_travel/util/spiritual_places.dart';
 import 'package:flutter_travel/widgets/icon_badge.dart';
 import 'package:flutter_travel/widgets/search_bar.dart';
 import 'package:flutter_travel/widgets/titled_navigation_barItem.dart';
 import 'package:flutter_travel/widgets/upper_navigation_bar.dart';
 import 'package:flutter_travel/widgets/vertical_place_item.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  List<dynamic> places = spiritualPlaces;
+  int topMenuPosition = 0;
+
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.width;
@@ -17,7 +27,7 @@ class Home extends StatelessWidget {
           IconButton(
             icon: IconBadge(
               icon: Icons.notifications_none,
-              color: Theme.of(context).primaryColor,
+              color: Constants.iconAppBarThemeLight.color,
             ),
             onPressed: () {},
           ),
@@ -51,17 +61,18 @@ class Home extends StatelessWidget {
             ),
           ),
           TitledBottomNavigationBar(
-              currentIndex: 2, // Use this to update the Bar giving a position
+              currentIndex:
+                  topMenuPosition, // Use this to update the Bar giving a position
               onTap: (index) {
-                print("Selected Index: $index");
+                updateBodyListPlaces(index);
               },
               items: [
                 TitledNavigationBarItem(
-                    title: Text('Home'), icon: Icon(Icons.home)),
+                    title: Text('Espiritual'), icon: Icon(Icons.all_inclusive)),
                 TitledNavigationBarItem(
-                    title: Text('Bag'), icon: Icon(Icons.card_travel)),
+                    title: Text('Aventura'), icon: Icon(Icons.motorcycle)),
                 TitledNavigationBarItem(
-                    title: Text('Orders'), icon: Icon(Icons.shopping_cart)),
+                    title: Text('Cultural'), icon: Icon(Icons.book)),
               ]),
           //buildHorizontalList(context),
           buildVerticalList(),
@@ -70,21 +81,13 @@ class Home extends StatelessWidget {
     );
   }
 
-  buildHorizontalList(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(top: 10.0, left: 20.0),
-      height: 250.0,
-      width: MediaQuery.of(context).size.width,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        primary: false,
-        itemCount: places.length,
-        itemBuilder: (BuildContext context, int index) {
-          Map place = places.reversed.toList()[index];
-          return HorizontalPlaceItem(place: place);
-        },
-      ),
-    );
+  void updateBodyListPlaces(int index) {
+    setState(() {
+      if (index == 0) places = spiritualPlaces;
+      if (index == 1) places = adventurePlaces;
+      if (index == 2) places = culturalPlaces;
+      topMenuPosition = index;
+    });
   }
 
   buildVerticalList() {
