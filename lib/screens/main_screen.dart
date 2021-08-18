@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_travel/screens/contact.dart';
 import 'package:flutter_travel/screens/home.dart';
 import 'package:flutter_travel/widgets/icon_badge.dart';
 
@@ -10,6 +11,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   late PageController _pageController;
   int _page = 0;
+  final listMenuScreen = [Home(), Home(), Home(), ContactScreen()];
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class _MainScreenState extends State<MainScreen> {
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
         onPageChanged: onPageChanged,
-        children: List.generate(4, (index) => Home()),
+        children: listMenuScreen,
       ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
