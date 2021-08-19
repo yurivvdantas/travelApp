@@ -20,14 +20,13 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    var screenHeight = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
             icon: IconBadge(
               icon: Icons.notifications_none,
-              color: Constants.iconAppBarThemeLight.color,
+              color: Theme.of(context).appBarTheme.iconTheme!.color,
             ),
             onPressed: () {},
           ),
@@ -46,11 +45,7 @@ class _HomeState extends State<Home> {
         children: <Widget>[
           Container(
             color: Theme.of(context).appBarTheme.backgroundColor,
-            height: screenHeight < 500
-                ? 110
-                : screenHeight > 800
-                    ? 300
-                    : screenHeight * 0.23,
+            height: Constants.heightTopBar(context),
             child: Padding(
               padding: EdgeInsets.all(30),
               child: Column(

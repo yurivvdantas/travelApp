@@ -52,4 +52,14 @@ class Constants {
       ),
     ),
   );
+
+  static heightTopBar(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
+    var screenHeight = MediaQuery.of(context).size.height;
+    return screenWidth < 500
+        ? screenHeight * 0.10
+        : screenWidth > 800
+            ? screenHeight * 0.23
+            : screenHeight * 0.15;
+  }
 }
