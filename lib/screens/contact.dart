@@ -12,7 +12,6 @@ class ContactScreen extends StatelessWidget {
           IconButton(
             icon: Icon(
               Icons.edit,
-              //IconData: Icons.edit,
               color: Theme.of(context).appBarTheme.iconTheme!.color,
             ),
             onPressed: () {},
@@ -35,32 +34,51 @@ class ContactScreen extends StatelessWidget {
               child: Text(
             "John Doe",
             style:
-                TextStyle(color: Theme.of(context).primaryColor, fontSize: 20),
+                TextStyle(color: Theme.of(context).primaryColor, fontSize: 30),
           )),
         ),
         SizedBox(
-          height: 30,
+          height: 40,
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 30, bottom: 20),
-          child: TextButton(
-            style: TextButton.styleFrom(
-              textStyle: const TextStyle(
-                fontSize: 20,
-              ),
-            ),
-            onPressed: () {},
-            child: Text(
-              'Favorites',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).appBarTheme.backgroundColor),
-            ),
-          ),
-        ),
-        Text('Saved searches'),
-        Text('Security and privacy')
+        Divider(),
+        contactTextButton(Icons.portrait, 'My profile', context),
+        Divider(),
+        contactTextButton(Icons.favorite, 'Favorites', context),
+        Divider(),
+        contactTextButton(Icons.search, 'Saved searches', context),
+        Divider(),
+        contactTextButton(Icons.question_answer, 'FAQ', context),
+        Divider(),
+        contactTextButton(Icons.security, 'Security and privacy', context),
+        Divider(),
       ]),
+    );
+  }
+
+  contactTextButton(icons, menuText, context) {
+    return TextButton(
+      style: TextButton.styleFrom(
+          textStyle: const TextStyle(
+            fontSize: 18,
+          ),
+          primary: Constants.primaySwatchLight,
+          padding: EdgeInsets.all(25),
+          alignment: Alignment.centerLeft),
+      onPressed: () {},
+      child: Row(
+        children: [
+          Icon(icons),
+          SizedBox(
+            width: 15,
+          ),
+          Text(
+            menuText,
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).appBarTheme.backgroundColor),
+          ),
+        ],
+      ),
     );
   }
 }
